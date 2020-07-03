@@ -34,9 +34,9 @@ namespace jaytwo.Http.Authentication.Digest
 
             var clientNonce = ClientNonceGenerateDelegate.Invoke();
             var nonceCount = 1;
-            var headerValue = await GetDigesAuthorizationtHeaderAsync(digestServerParams, request, clientNonce, nonceCount);
+            var authorizationHeaderValue = await GetDigesAuthorizationtHeaderAsync(digestServerParams, request, clientNonce, nonceCount);
 
-            request.Headers.Authorization = AuthenticationHeaderValue.Parse(headerValue);
+            SetRequestAuthenticationHeader(request, authorizationHeaderValue);
         }
 
         internal async Task<DigestServerParams> GetDigestServerParams(Uri uri)
