@@ -54,7 +54,8 @@ namespace jaytwo.Http.Authentication.Digest
 
         internal async Task<string> GetDigesAuthorizationtHeaderAsync(DigestServerParams digestServerParams, HttpRequestMessage request, string clientNonce, int nonceCount)
         {
-            var uri = request.RequestUri.PathAndQuery;
+            var uri = request.RequestUri.IsAbsoluteUri ? request.RequestUri.PathAndQuery : request.RequestUri.OriginalString;
+
             var nonceCountAsString = $"{nonceCount}".PadLeft(8, '0'); // padleft not strictly necessary, but it makes the documented example work
             var response = await DigestCalculator.GetResponseAsync(digestServerParams, request, uri, _username, _password, clientNonce, nonceCountAsString);
 
