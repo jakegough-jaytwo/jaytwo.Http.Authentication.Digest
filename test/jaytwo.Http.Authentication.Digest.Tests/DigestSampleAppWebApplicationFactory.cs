@@ -12,7 +12,7 @@ namespace jaytwo.Http.Authentication.Digest.Tests
     {
         protected override void ConfigureWebHost(IWebHostBuilder builder)
         {
-            var contentRoot = new SlnFileResolver().ResolvePathRelativeToSln("test/DigestSampleApp.Tests");
+            var contentRoot = new SlnFileResolver().ResolvePathRelativeToSln("test/DigestSampleApp");
             builder.UseContentRoot(contentRoot);
         }
     }
