@@ -6,21 +6,20 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
-namespace DigestSampleApp.Controllers
-{
-    [ApiController]
-    [Route("[controller]")]
-    [Authorize(AuthenticationSchemes = "Digest")]
-    public class SecureController : ControllerBase
-    {
-        public SecureController()
-        {
-        }
+namespace DigestSampleApp.Controllers;
 
-        [HttpGet]
-        public string Get()
-        {
-            return "Welcome to the secured area.";
-        }
+[ApiController]
+[Route("[controller]")]
+[Authorize(AuthenticationSchemes = "Digest")]
+public class SecureController : ControllerBase
+{
+    public SecureController()
+    {
+    }
+
+    [HttpGet]
+    public string Get()
+    {
+        return "Welcome to the secured area.";
     }
 }
