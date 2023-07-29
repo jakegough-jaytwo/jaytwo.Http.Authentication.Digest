@@ -4,20 +4,19 @@ using System.Linq;
 using System.Threading.Tasks;
 using FlakeyBit.DigestAuthentication.Implementation;
 
-namespace DigestSampleApp
+namespace DigestSampleApp;
+
+internal class ExampleUsernameSecretProvider : IUsernameSecretProvider
 {
-    internal class ExampleUsernameSecretProvider : IUsernameSecretProvider
+    public Task<string> GetSecretForUsernameAsync(string username)
     {
-        public Task<string> GetSecretForUsernameAsync(string username)
+        if (username == "eddie")
         {
-            if (username == "eddie")
-            {
-                return Task.FromResult("starwars123");
-            }
-
-            /// User not found
-            return Task.FromResult<string>(null);
+            return Task.FromResult("starwars123");
         }
-    }
 
+        /// User not found
+        return Task.FromResult<string>(null);
+    }
 }
+
