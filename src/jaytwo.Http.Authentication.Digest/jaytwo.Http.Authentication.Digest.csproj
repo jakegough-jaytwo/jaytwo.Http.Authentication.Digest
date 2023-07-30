@@ -12,7 +12,6 @@
   <ItemGroup>
     <PackageReference Include="jaytwo.Http" Version="0.1.0-*" />
     <PackageReference Include="jaytwo.Http.Authentication" Version="0.1.0-*" />
-    <PackageReference Include="jaytwo.FluentHttp" Version="0.1.0-*" />
   </ItemGroup>
 
   <!--
