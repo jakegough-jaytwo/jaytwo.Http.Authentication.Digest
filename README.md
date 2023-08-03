@@ -1,10 +1,10 @@
 # jaytwo.Http.Authentication.Digest
 
 <p align="center">
-  <a href="https://jenkins.jaytwo.com/job/jaytwo.Http.Authentication.Digest/job/master/" alt="Build Status (master)">
-    <img src="https://jenkins.jaytwo.com/buildStatus/icon?job=jaytwo.Http.Authentication.Digest%2Fmaster&subject=build%20(master)" /></a>
-  <a href="https://jenkins.jaytwo.com/job/jaytwo.Http.Authentication.Digest/job/develop/" alt="Build Status (develop)">
-    <img src="https://jenkins.jaytwo.com/buildStatus/icon?job=jaytwo.Http.Authentication.Digest%2Fdevelop&subject=build%20(develop)" /></a>
+  <a href="https://jenkins.jaytwo.com/job/github-jakegough-jaytwo/job/jaytwo.Http.Authentication.Digest/job/master/" alt="Build Status (master)">
+    <img src="https://jenkins.jaytwo.com/buildStatus/icon?job=github-jakegough-jaytwo%2Fjaytwo.Http.Authentication.Digest%2Fmaster&subject=build%20(master)" /></a>
+  <a href="https://jenkins.jaytwo.com/job/github-jakegough-jaytwo/job/jaytwo.Http.Authentication.Digest/job/develop/" alt="Build Status (develop)">
+    <img src="https://jenkins.jaytwo.com/buildStatus/icon?job=github-jakegough-jaytwo%2Fjaytwo.Http.Authentication.Digest%2Fdevelop&subject=build%20(develop)" /></a>
 </p>
 
 <p align="center">
@@ -24,7 +24,14 @@ PM> Install-Package jaytwo.Http.Authentication.Digest
 
 ## Usage
 
-TODO
+This builds on the `IHttpClient` and `IAuthenticationProvider` abstractions from the `jaytwo.Http` and `jaytwo.Http.Authentication` packages.   This is meant for use with the `jaytwo.FluentHttp` package.
+
+It's worth noting that digest auth is pretty much dead these days, but occasionally you find an integration that needs it.
+
+```csharp
+// digest auth
+var httpClient = new HttpClient().Wrap().WithDigestAuthentication("user", "pass");
+```
 
 ---
 
